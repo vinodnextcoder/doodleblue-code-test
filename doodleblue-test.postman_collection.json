@@ -1,0 +1,349 @@
+{
+	"info": {
+		"_postman_id": "a4fe1919-2f7e-4cb5-b735-a0741da3366d",
+		"name": "doodleblue-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User creation API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullname\":\"pradip\",\r\n    \"email\":\"prad@gmail.com\",\r\n    \"mobileNo\":\"9890197788\",\r\n    \"password\":\"123456\",\r\n    \"userType\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3002/api/v1/user/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"prad@gmail.com\",\r\n    \"mobileNo\": \"9890197788\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3002/api/v1/user/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add product to list using task API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtb2JpbGVObyI6Ijk4OTAxOTc3ODgiLCJpYXQiOjE2NTc2OTg0MjUsImV4cCI6MTY1NzcyNzIyNX0.gs1jeuWSuJqXvJ4eKqbdFKxAsNGFCt9W7st-Z240Uoo",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/DELL/Desktop/sample.csv"
+						},
+						{
+							"key": "type",
+							"value": "bulk",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3002/api/v1/task/addProduct",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"task",
+						"addProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtb2JpbGVObyI6Ijk4OTAxOTc3ODgiLCJpYXQiOjE2NTc2OTg0MjUsImV4cCI6MTY1NzcyNzIyNX0.gs1jeuWSuJqXvJ4eKqbdFKxAsNGFCt9W7st-Z240Uoo",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderItem\": [\r\n        {\r\n            \"name\": \"pen\",\r\n            \"quantity\": 5,\r\n            \"price\": 2,\r\n            \"product\": \"62cc5a598a6d80ea0f7c32e1\"\r\n        },\r\n        {\r\n            \"name\": \"pen2\",\r\n            \"quantity\": 5,\r\n            \"price\": 2,\r\n            \"product\": \"62cc5a598a6d80ea0f7c32e1\"\r\n        }\r\n    ],\r\n    \"shippinginfo\":{\r\n    \"address\": \"shivaji nagar\",\r\n    \"city\": \"pune\",\r\n    \"phoneNo\": \"999999\",\r\n    \"postalCode\": \"422003\",\r\n    \"country\": \"india\"\r\n    },\r\n\r\n    \"paidAt\": \"2022-07-11T17:12:13.764+00:00\",\r\n    \"itemsPrice\": 1234,\r\n    \"taxPrice\": 1234,\r\n    \"shippingPrice\": 1000,\r\n    \"totalPrice\": 1234,\r\n    \"orderStatus\": \"peding\",\r\n    \"deliveredAt\": \"2022-07-11T17:12:13.764+00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3002/api/v1/order/addOrder",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"addOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancel order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtb2JpbGVObyI6Ijk4OTAxOTc3NzkiLCJpYXQiOjE2NTc2Mzk4NDMsImV4cCI6MTY1NzY2ODY0M30.8E6L2TTSJLPiBwmZYEapyW5r9ElN7GjBsilRQsS_XrI",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"transaction_id\":\"165763709932221889\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3002/api/v1/order/cancelOrder",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"cancelOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api to list ordered products based on the customer.",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3002/api/v1/order/product/customer",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"product",
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search api based on customer name search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtb2JpbGVObyI6Ijk4OTAxOTc3NzkiLCJpYXQiOjE2NTc2ODczOTUsImV4cCI6MTY1NzcxNjE5NX0.HlP2KZkKtYF7Rs3sft2xFBKg7jyCmuJERDzqft9TAF4",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3002/api/v1/order/product/customer?search=vinod",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"product",
+						"customer"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "vinod"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Api to list ordered product count based on date.",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtb2JpbGVObyI6Ijk4OTAxOTc3NzkiLCJpYXQiOjE2NTc2ODczOTUsImV4cCI6MTY1NzcxNjE5NX0.HlP2KZkKtYF7Rs3sft2xFBKg7jyCmuJERDzqft9TAF4",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3002/api/v1/order/product/date",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"product",
+						"date"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Api to list customers based on the number of products purchased.",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtb2JpbGVObyI6Ijk4OTAxOTc3NzkiLCJpYXQiOjE2NTc2ODczOTUsImV4cCI6MTY1NzcxNjE5NX0.HlP2KZkKtYF7Rs3sft2xFBKg7jyCmuJERDzqft9TAF4",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3002/api/v1/order/product/product",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"product",
+						"product"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
