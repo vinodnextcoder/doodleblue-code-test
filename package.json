@@ -52,7 +52,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.2.5",
-    "mongoose": "^6.4.4",
+    "mongoose": "^6.4.6",
     "passport-jwt": "^4.0.0",
     "prettier": "^2.3.2",
     "source-map-support": "^0.5.20",
